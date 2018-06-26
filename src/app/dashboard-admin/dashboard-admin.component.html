@@ -72,7 +72,7 @@
         <header class="modal-card-head has-background-info">
             <p class="modal-card-title has-text-white">Revisar Reembolso</p>
 
-            <button class="delete" aria-label="Fechar" (click)="closeModal()"></button>
+            <button class="delete" aria-label="Fechar" (click)="closeModal(formReembolso)"></button>
         </header>
         <section class="modal-card-body">
             <h4 class="subtitle is-5">Confira abaixo as informações do reembolso solicitado</h4>
@@ -155,9 +155,9 @@
             </form>
         </section>
         <footer class="modal-card-foot is-grouped-right">
-            <button class="button is-success" (click)="aprovarReembolso(reembolsoSelecionado, valorReembolsado)">Aprovar</button>
-            <button class="button is-danger" (click)="reprovarReembolso(idreembolso)">Reprovar</button>
-            <button class="button is-warning is-outlined" (click)="closeModal()">Cancelar</button>
+            <button class="button is-success" (click)="aprovarReembolso()">Aprovar</button>
+            <button class="button is-danger" (click)="reprovarReembolso()">Reprovar</button>
+            <button class="button is-warning is-outlined" (click)="closeModal(formReembolso)">Cancelar</button>
         </footer>
     </div>
 </div>

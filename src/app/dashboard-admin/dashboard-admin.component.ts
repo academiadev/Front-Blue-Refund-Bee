@@ -20,6 +20,7 @@ export class DashboardAdminComponent implements OnInit {
 	public reembolsos: ReembolsoDTO[];
 	reembolsoSelecionado: ReembolsoDTO;
 	reembolsoAprovado: AprovarReembolsoDTO;
+	
 
 
 	constructor(
