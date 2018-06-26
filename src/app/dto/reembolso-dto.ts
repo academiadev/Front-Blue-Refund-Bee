@@ -1,6 +1,7 @@
 export class ReembolsoDTO {
 	constructor(
 		public nome: string,
+		public id: string,
 		public categoria: string,
 		public data: string,
 		public valorSolicitado: number,

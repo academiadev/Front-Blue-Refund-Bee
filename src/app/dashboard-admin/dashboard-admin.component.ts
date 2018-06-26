@@ -17,8 +17,8 @@ export class DashboardAdminComponent implements OnInit {
 	isModalActive = false;
 	formReembolso: FormGroup;
 	public categorias: any = [];
-	public reembolsos: any = [];
-	reembolsoSelecionado: any;
+	public reembolsos: ReembolsoDTO[];
+	reembolsoSelecionado: ReembolsoDTO;
 	reembolsoAprovado: AprovarReembolsoDTO;
 
 
@@ -39,10 +39,10 @@ export class DashboardAdminComponent implements OnInit {
 	}
 	aprovarReembolso(idreembolso: AprovarReembolsoDTO) {
 		const idAprovado = this.reembolsoSelecionado.id;
-		this.reembolsoSelecionado.valorReembolsado = this.formReembolso.get('valorReembolsado');
-		const valorReembolsado = this.reembolsoSelecionado.valorReembolsado.value;
+		// this.reembolsoSelecionado.valorReembolsado = this.formReembolso.get('valorReembolsado');
+		const valorReembolsado = this.reembolsoSelecionado.valorReembolsado;
 
-		console.log('data ' + idAprovado, this.reembolsoSelecionado.valorReembolsado.value);
+		console.log('data ' + idAprovado, this.reembolsoSelecionado.valorReembolsado);
 		this.reembolsoAprovado = { id: idAprovado, valorReembolsado: valorReembolsado };
 		console.log(this.reembolsoAprovado);
 
