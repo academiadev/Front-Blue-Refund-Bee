@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 			localStorage.setItem(environment.tokenName, token.access_token);
 			const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
 			this.usuario.getRole().subscribe(role => {
-				this.userRole = role;
+				this.userRole = JSON.stringify(role);
 				this.isAdmin();
 			}, error => {
 				console.log(error);
