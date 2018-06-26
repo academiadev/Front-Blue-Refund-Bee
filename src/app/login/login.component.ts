@@ -9,6 +9,7 @@ import { BadCredentialsError } from '../commons/bad-credentials';
 import { UsuarioValidator } from './user-validator';
 import { ToastrService } from 'ngx-toastr';
 import { faCoffee, faHome } from '@fortawesome/free-solid-svg-icons';
+import { EmpresaService } from '../service/empresa.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
 		private router: Router,
 		private authService: AuthService,
 		private route: ActivatedRoute,
+		private usuario: EmpresaService
 	) { }
 
 	ngOnInit() {
@@ -54,7 +56,13 @@ export class LoginComponent implements OnInit {
 		this.authService.login(user).subscribe((token: TokenDTO) => {
 			localStorage.setItem(environment.tokenName, token.access_token);
 			const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-			this.isAdmin();
+			this.usuario.getRole().subscribe(role => {
+				this.userRole = role;
+				this.isAdmin();
+			}, error => {
+				console.log(error);
+			}
+			);
 		},
 			(e) => {
 				if (e instanceof BadCredentialsError) {
